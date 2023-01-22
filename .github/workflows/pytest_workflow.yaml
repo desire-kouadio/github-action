@@ -33,7 +33,7 @@ jobs:
       - name: Install pytest and unittest 
         run: |
           pip install pytest
-          pip install unittest
+          pip install unittest2
 
       - name: Run pytest tests
         run: |
