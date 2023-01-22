@@ -14,9 +14,8 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
         exclude:
           - os: macos-latest
-            python-version: "3.x"
           - os: windows-latest
-            python-version: "3.x"
+            
     steps:
       - name: Checkout on master
         uses: actions/checkout@v3
