@@ -1,13 +1,15 @@
-name: Pytest 
+name: PYTEST CI 
+
 on: 
   push:
     branches:
       - "master"
   pull_request:
-    types: [closed, assigned, opened, reopened]
-    
+    branches:
+      - "master"
+
 jobs:
-  run-shell-command:
+  run-shell-build-and-test:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
