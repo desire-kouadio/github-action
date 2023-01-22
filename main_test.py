@@ -22,4 +22,4 @@ def test_total () :
 def test_total_raises_exception_on_non_list_arguments():
     """ renvoie une erreur lorsqu'on lui soumet un int """
     with pytest.raises(TypeError):
-        total(1)
+        total([1])
