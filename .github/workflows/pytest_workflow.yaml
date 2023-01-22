@@ -30,13 +30,18 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Install pytest
+      - name: Install pytest and unittest 
         run: |
           pip install pytest
+          pip install unittest
 
-      - name: Run tests
+      - name: Run pytest tests
         run: |
           pytest
+
+      - name: Run unittest tests
+        run: |
+          unittest -v 
           
 
 
