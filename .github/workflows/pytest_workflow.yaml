@@ -1,4 +1,7 @@
 name: PYTEST CI 
+# on:
+#   schedule:
+#     - cron: '0 */2 * * *'  # runs every 2 hours
 on: 
   push:
     branches:
@@ -18,7 +21,7 @@ jobs:
             
     steps:
       - name: Checkout on master
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3 # ckeckout the repository content to github runner
 
       - name: python commands
         run: |
@@ -26,10 +29,10 @@ jobs:
           print(platform.processor())
         shell: python
 
-      - name: Set up Python
+      - name: Setup Python
         uses: actions/setup-python@master
         with:
-          python-version: "3.x"
+          python-version: "3.x" # install the python version needed
 
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
@@ -42,7 +45,7 @@ jobs:
       
       - name: Run Test with pytest
         run: |
-          pytest --html=report.html
+          pytest --html=report.html --self-contained-html 
 
       
 
