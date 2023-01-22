@@ -16,3 +16,25 @@ Les tests d'intégration sont axés sur des cas d’usage réels. Ils font ainsi
 - Imaginez que l’on teste le fonctionnement d’un phare sur une voiture. Le test d’intégration vérifie que le phare s’allume lorsqu'on appuie sur le bon bouton. 
 Les tests unitaires, s’assureront eux du bon fonctionnement de chaque élément du phare
 pris séparément (fonctionnement du bouton, de la batterie, des câbles, des ampoules…).
+
+### Avantages 
+
+- Gain de temps.
+
+- Fluidification des modifications du code.
+
+- Amélioration de la qualité du code. 
+
+- Aide à la compréhension du code.
+
+### Les limites
+
+- Il est toutefois impossible de tester l’infinité des éventualités auxquelles devra faire face l’unité. Passer le test unitaire sans accroc n’est donc pas non plus gage total de bon fonctionnement.
+
+- Les tests unitaires ne peuvent, par construction, pas tester l'interaction entre les unités.
+
+### L’automated testing 
+
+- Le framework de base de l’automated testing sur python est unittest. Nous allons dans ce cours apprendre à utiliser pytest qui est légèrement plus intuitif.
+
+## NB : Les fonctions tests doivent systématiquement commencer par test_.

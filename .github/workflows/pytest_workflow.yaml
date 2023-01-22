@@ -1,19 +1,41 @@
-name: Shell commands
-on: [push]
+name: Pytest 
+on: 
+  push:
+    branches:
+      - "master"
+  pull_request:
+    types: [closed, assigned, opened, reopened]
+    
 jobs:
   run-shell-command:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest, ubuntu-20.04, ubuntu-18.04]
+
     steps:
-      - name: echo a string
-        run: echo "Hello world"
-      - name: multiline script
+      - name: Checkout on master
+        uses: actions/checkout@v3
+
+      - name: python commands
         run: |
-          python3 -V
-          touch my_file_with_workflow.py
-          ls -l
+          import platform 
+          print(platform.processor())
+        shell: python
+
+      - name: Set up Python
+        uses: actions/setup-python@master
+        with:
+          python-version: "3.x"
+
+      - name: Install pytest
+        run: |
+          pip install pytest
+
+      - name: Run tests
+        run: |
+          pytest
+          
 
 
 
